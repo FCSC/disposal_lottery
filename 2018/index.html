@@ -1,0 +1,76 @@
+﻿<html> 
+<head>
+  <style type="text/css">
+        p.label_image img { width: 20%; }
+        p.fcsc_logo img   { width: 25%; }
+        span.disptext     { font-size: 3vw; }
+</style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <img class="random" src="0.png" alt="0" style="display:none"/>
+  <img class="random" src="A.png" alt="A" style="display:none"/>
+  <img class="random" src="B.png" alt="B" style="display:none"/>
+  <img class="random" src="C.png" alt="C" style="display:none"/>
+  <img class="random" src="D.png" alt="D" style="display:none"/>
+  <img class="random" src="E.png" alt="E" style="display:none"/>
+  <img class="random" src="F.png" alt="E" style="display:none"/>
+  <img class="random" src="G.png" alt="E" style="display:none"/>
+  <img class="random" src="H.png" alt="E" style="display:none"/>
+</head>
+<script type="text/javascript">
+function getImage () {
+  // 画像ファイル名
+  var arr = ['A.png', 'B.png', 'C.png', 'D.png',
+             'E.png', 'F.png', 'G.png', 'H.png'];
+  // HTML上の画像タグ名
+  var img = ['img0', 'img1', 'img2', 'img3'];
+
+  do {
+    var count = 0; // number of '1' in the label[]
+    var index = 0; // index of label[]
+    var label = [0, 0, 0, 0, 0, 0, 0, 0]
+    while (count < 4) { // 1が4つ立つまでループ
+      if (label[index] == 0) {
+        label[index] = Math.floor(Math.random() * 2); // 0 or 1
+        if (label[index] == 1) { count++; }
+      }
+      index++;
+      if (index > 8) { index = 0; }
+    }
+  // 11110000 or 00001111 のパターンは除去
+  } while ((label[0] == 1 && label[1] == 1 && label[2] == 1 && label[3] == 1) ||
+           (label[4] == 1 && label[5] == 1 && label[6] == 1 && label[7] == 1))
+  console.log(label);
+
+  // 画像タグに画像をセットする
+  var obj = new Array(4);
+  for (i = 0, j = 0; i < label.length; i++) {
+    if (label[i] == 1) {
+      obj[j] = document.getElementById(img[j]);
+      obj[j].src = arr[i];
+      j++;
+    }
+  }
+}
+</script> 
+<body bgcolor="#EC721A">
+  <br />
+  <p class="fcsc_logo">
+  <img src="fcsc_logo.png">
+  </p>
+  <center>
+  <span class="disptext">Disposal items are </span><br/>
+  <p class="label_image">
+  <img src="0.png" id="img0" alt="item0">
+  <img src="0.png" id="img1" alt="item1">
+  <img src="0.png" id="img2" alt="item2">
+  <img src="0.png" id="img3" alt="item3">.
+  </p>
+  <br/>
+  <br/>
+  <font size="20pt">
+    <input type="button" value="Draw a lottery!!" onclick="getImage()"
+           style="width: 20vw; height: 8vh; font-size: 2vw;">
+  </font>
+  </center>
+</body> 
+</html>
