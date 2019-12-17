@@ -1,0 +1,101 @@
+<html> 
+<head>
+  <style type="text/css">
+        p.label_image img { width: 20%; }
+        p.fcsc_logo img   { width: 25%; }
+        span.disptext     { font-size: 3vw; }
+        @keyframes roll {
+          from {
+            transform: perspective(500px) rotateY(0deg);
+          }
+          50% {
+            transform: perspective(500px) rotateY(180deg);
+          }
+          to {
+           transform: perspective(500px) rotateY(360deg);
+          }
+        }
+        .rotate {
+          animation: roll 1s linear infinite;
+        }
+</style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <img class="random" src="0.png" alt="0" style="display:none"/>
+  <img class="random" src="A.png" alt="A" style="display:none"/>
+  <img class="random" src="B.png" alt="B" style="display:none"/>
+  <img class="random" src="E.png" alt="E" style="display:none"/>
+  <img class="random" src="F.png" alt="F" style="display:none"/>
+  <img class="random" src="I.png" alt="I" style="display:none"/>
+  <img class="random" src="J.png" alt="J" style="display:none"/>
+  <img class="random" src="L.png" alt="L" style="display:none"/>
+  <img class="random" src="M.png" alt="M" style="display:none"/>
+  <img class="random" src="O.png" alt="O" style="display:none"/>
+  <img class="random" src="P.png" alt="P" style="display:none"/>
+  <img class="random" src="R.png" alt="R" style="display:none"/>
+  <img class="random" src="S.png" alt="S" style="display:none"/>
+</head>
+<script type="text/javascript">
+
+function rotateImage() {
+    // HTML上の画像タグ名
+  var img = ['img0', 'img1', 'img2', 'img3', 'img4','img5'];
+
+  // 画像タグに画像をセットする
+  var obj = new Array(img.length);
+  for (i = 0; i < img.length; i++) {
+    obj[i] = document.getElementById(img[i]);
+    obj[i].className = "rotate";
+    obj[i].src = "0.png";
+    console.log(obj[i].className);
+  }
+}
+function changeImage() {
+  // 画像ファイル名
+  var arr = [['A.png', 'B.png'],
+             ['E.png', 'F.png'],
+             ['I.png', 'J.png'],
+             ['L.png', 'M.png'],
+             ['O.png', 'P.png'],
+             ['R.png', 'S.png']];
+  // HTML上の画像タグ名
+  var img = ['img0', 'img1', 'img2', 'img3', 'img4','img5'];
+
+  // 画像タグに画像をセットする
+  var obj = new Array(img.length);
+  for (i = 0; i < img.length; i++) {
+    obj[i] = document.getElementById(img[i]);
+    obj[i].src = arr[i][Math.floor(Math.random() * 2)];
+    obj[i].className = "random";
+    
+  }
+}
+function getImage () {
+    rotateImage();
+    var id = setTimeout(changeImage, 4000)
+}
+</script> 
+<body bgcolor="#EC721A">
+  <br />
+  <p class="fcsc_logo">
+  <img src="fcsc_logo.png">
+  </p>
+  <center>
+  <span class="disptext">Disposal items are </span><br/>
+  <p class="label_image">
+  <img src="0.png" id="img0" alt="item0" style="width: 15%;">
+  <img src="0.png" id="img1" alt="item1" style="width: 15%;">
+  <img src="0.png" id="img2" alt="item2" style="width: 15%;">
+  <img src="0.png" id="img3" alt="item3" style="width: 15%;">
+  <img src="0.png" id="img4" alt="item4" style="width: 15%;">
+  <img src="0.png" id="img5" alt="item5" style="width: 15%;">
+  .
+  </p>
+  <br/>
+  <br/>
+  <font size="20pt">
+    <input type="button" value="Draw a lottery!!" onclick="getImage()"
+           style="width: 20vw; height: 8vh; font-size: 2vw;">
+  </font>
+  </center>
+</body> 
+</html>
