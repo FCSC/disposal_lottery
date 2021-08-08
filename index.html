@@ -1,24 +1,117 @@
 <html> 
 <head>
   <style type="text/css">
-        p.label_image img { width: 20%; }
-        p.fcsc_logo img   { width: 25%; }
-        span.disptext     { font-size: 3vw; }
-        @keyframes roll {
-          from {
-            transform: perspective(500px) rotateY(0deg);
-          }
-          50% {
-            transform: perspective(500px) rotateY(180deg);
-          }
-          to {
-           transform: perspective(500px) rotateY(360deg);
-          }
-        }
-        .rotate {
-          animation: roll 1s linear infinite;
-        }
-</style>
+  /* logos */
+  body {
+    background-color: #EC721A;
+  }
+  .fcsc_logo img { width: 25%; }
+  .wrs_logo img {
+    float: right;
+    width: 15%;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }
+
+  /* text, images, button */
+  p.label_image img { width: 20%; }
+  .disptext {
+    text-align: center;
+    font-size: 3vw;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: メイリオ, Meiryo, Verdana, "ヒラギノ角ゴ Pro W6", "HiraKakuProN-W6", "ＭＳ ゴシック", Osaka ,sans-serif;
+  }
+  .cards {
+    text-align: center;
+  }
+  .button {
+    text-align: center;
+  }
+
+  /* rotating cards */
+  @keyframes roll {
+    from {
+      transform: perspective(500px) rotateY(0deg);
+    }
+    50% {
+      transform: perspective(500px) rotateY(180deg);
+    }
+    to {
+     transform: perspective(500px) rotateY(360deg);
+    }
+  }
+  .rotate {
+    animation: roll 1s linear infinite;
+  }
+
+  /* lottery button effect */
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  .btn,
+  input.btn,
+  button.btn {
+    font-size: 2.6rem;
+    font-weight: bold;
+    font-family: メイリオ, Meiryo, Verdana, "ヒラギノ角ゴ Pro W6", "HiraKakuProN-W6",   "ＭＳ ゴシック", Osaka ,sans-serif;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.0em;
+    color: #6B79AD; /* #212529; */
+    border-radius: 0.5rem;
+  }
+  .btn-flat {
+    overflow: hidden;
+    padding: 1.5rem 6rem;
+    color: #fff;
+    border-radius: 0;
+    background: #6B79AD; /* #000; */
+  }
+  .btn-flat span {
+    position: relative;
+  }
+  .btn-flat:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 500%;
+    content: "";
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    background: #5DAC98; /* #00b7ee; */
+  }
+  .btn-flat:hover:before {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  </style>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
   <img class="random" src="0.png" alt="0" style="display:none"/>
   <img class="random" src="A.png" alt="A" style="display:none"/>
@@ -34,6 +127,7 @@
   <img class="random" src="R.png" alt="R" style="display:none"/>
   <img class="random" src="S.png" alt="S" style="display:none"/>
 </head>
+
 <script type="text/javascript">
 
 function rotateImage() {
@@ -71,16 +165,24 @@ function changeImage() {
 }
 function getImage () {
     rotateImage();
-    var id = setTimeout(changeImage, 4000)
+    var id = setTimeout(changeImage, 2500)
 }
-</script> 
-<body bgcolor="#EC721A">
+</script>
+
+<body>
   <br />
-  <p class="fcsc_logo">
-  <img src="fcsc_logo.png">
+  <p>
+    <span class="fcsc_logo">
+      <img src="fcsc_logo.png">
+    </span>
+    <span class="wrs_logo">
+      <img src="wrs_logo.png">
+    </span>
   </p>
-  <center>
-  <span class="disptext">Disposal items are </span><br/>
+
+  <div class="disptext">Disposal Items</div>
+  <br/>
+  <div class="cards">
   <p class="label_image">
   <img src="0.png" id="img0" alt="item0" style="width: 15%;">
   <img src="0.png" id="img1" alt="item1" style="width: 15%;">
@@ -90,12 +192,13 @@ function getImage () {
   <img src="0.png" id="img5" alt="item5" style="width: 15%;">
   .
   </p>
+  </div>
   <br/>
   <br/>
-  <font size="20pt">
-    <input type="button" value="Draw a lottery!!" onclick="getImage()"
-           style="width: 20vw; height: 8vh; font-size: 2vw;">
-  </font>
-  </center>
+  <div class="button">
+    <a href="javascript:void(0)" class="btn btn-flat" onclick="getImage()">
+      <span>Draw The Lottery!!</span>
+    </a>
+  </div>
 </body> 
 </html>
