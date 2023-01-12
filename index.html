@@ -120,24 +120,25 @@
   </style>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-  <img class="random" src="0.png" alt="0" style="display:none"/>
-  <img class="random" src="A.png" alt="A" style="display:none"/>
-  <img class="random" src="B.png" alt="B" style="display:none"/>
-  <img class="random" src="D.png" alt="E" style="display:none"/>
-  <img class="random" src="E.png" alt="F" style="display:none"/>
-  <img class="random" src="G.png" alt="I" style="display:none"/>
-  <img class="random" src="J.png" alt="J" style="display:none"/>
-  <img class="random" src="K.png" alt="L" style="display:none"/>
-  <img class="random" src="M.png" alt="M" style="display:none"/>
-  <img class="random" src="N.png" alt="O" style="display:none"/>
-  <img class="random" src="P.png" alt="P" style="display:none"/>
-  <img class="random" src="Q.png" alt="R" style="display:none"/>
-  <img class="random" src="S.png" alt="S" style="display:none"/>
-  <img class="random" src="T.png" alt="S" style="display:none"/>
-  <img class="random" src="V.png" alt="S" style="display:none"/>
-  <img class="random" src="W.png" alt="S" style="display:none"/>
-  <img class="random" src="Y.png" alt="S" style="display:none"/>
-  <img class="random" src="Z.png" alt="S" style="display:none"/>
+  <img class="random" src="00.png" alt="00" style="display:none"/>
+  <img class="random" src="01.png" alt="01" style="display:none"/>
+  <img class="random" src="02.png" alt="02" style="display:none"/>
+  <img class="random" src="04.png" alt="04" style="display:none"/>
+  <img class="random" src="05.png" alt="05" style="display:none"/>
+  <img class="random" src="07.png" alt="07" style="display:none"/>
+  <img class="random" src="08.png" alt="08" style="display:none"/>
+  <img class="random" src="10.png" alt="10" style="display:none"/>
+  <img class="random" src="11.png" alt="11" style="display:none"/>
+  <img class="random" src="13.png" alt="13" style="display:none"/>
+  <img class="random" src="14.png" alt="14" style="display:none"/>
+  <img class="random" src="16.png" alt="16" style="display:none"/>
+  <img class="random" src="17.png" alt="17" style="display:none"/>
+  <img class="random" src="19.png" alt="19" style="display:none"/>
+  <img class="random" src="20.png" alt="20" style="display:none"/>
+  <img class="random" src="22.png" alt="22" style="display:none"/>
+  <img class="random" src="23.png" alt="23" style="display:none"/>
+  <img class="random" src="25.png" alt="25" style="display:none"/>
+  <img class="random" src="26.png" alt="26" style="display:none"/>
 </head>
 
 <script type="text/javascript">
@@ -151,21 +152,21 @@ function rotateImage() {
   for (i = 0; i < img.length; i++) {
     obj[i] = document.getElementById(img[i]);
     obj[i].className = "rotate";
-    obj[i].src = "0.png";
+    obj[i].src = "00.png";
     console.log(obj[i].className);
   }
 }
 function changeImage() {
   // 画像ファイル名
-  var arr = [['A.png', 'B.png'],
-             ['D.png', 'E.png'],
-             ['G.png', 'H.png'],
-             ['J.png', 'K.png'],
-             ['M.png', 'N.png'],
-             ['P.png', 'Q.png'],
-             ['S.png', 'T.png'],
-             ['V.png', 'W.png'],
-             ['Y.png', 'Z.png']
+  var arr = [['01.png', '02.png'],
+             ['04.png', '05.png'],
+             ['07.png', '08.png'],
+             ['10.png', '11.png'],
+             ['13.png', '14.png'],
+             ['16.png', '17.png'],
+             ['19.png', '20.png'],
+             ['22.png', '23.png'],
+             ['25.png', '26.png']
             ];
   // HTML上の画像タグ名
   var img = ['img0', 'img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'];
@@ -200,16 +201,16 @@ function getImage () {
   <br/><br/>
   <div class="cards">
   <p class="label_image">
-  <img src="0.png" id="img0" alt="item0" style="width: 15%;">
-  <img src="0.png" id="img1" alt="item1" style="width: 15%;">
-  <img src="0.png" id="img2" alt="item2" style="width: 15%;">
-  <img src="0.png" id="img3" alt="item3" style="width: 15%;">
-  <img src="0.png" id="img4" alt="item4" style="width: 15%;">
+  <img src="00.png" id="img0" alt="item0" style="width: 15%;">
+  <img src="00.png" id="img1" alt="item1" style="width: 15%;">
+  <img src="00.png" id="img2" alt="item2" style="width: 15%;">
+  <img src="00.png" id="img3" alt="item3" style="width: 15%;">
+  <img src="00.png" id="img4" alt="item4" style="width: 15%;">
   <br/>
-  <img src="0.png" id="img5" alt="item5" style="width: 15%;">
-  <img src="0.png" id="img6" alt="item6" style="width: 15%;">
-  <img src="0.png" id="img7" alt="item7" style="width: 15%;">
-  <img src="0.png" id="img8" alt="item8" style="width: 15%;">
+  <img src="00.png" id="img5" alt="item5" style="width: 15%;">
+  <img src="00.png" id="img6" alt="item6" style="width: 15%;">
+  <img src="00.png" id="img7" alt="item7" style="width: 15%;">
+  <img src="00.png" id="img8" alt="item8" style="width: 15%;">
   .
   </p>
   </div>
@@ -223,6 +224,7 @@ function getImage () {
     <a href="./2018/index.html">2018</a>
     <a href="./2019/index.html">2019</a>
     <a href="./2020/index.html">2020</a>
+    <a href="./2022/index.html">2020</a>
   </div>
 </body> 
 </html>
