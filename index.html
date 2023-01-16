@@ -12,12 +12,27 @@
   .align-right {
     text-align: right;
   }
-  .fcsc_logo img { width: 25%; }
+  .fcsc_logo img {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ifac_logo img {
+    width: 40%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }
   .wrs_logo img {
     float: right;
-    width: 15%;
+    width: 25%;
     padding: 20px;
-    margin: 20px;
+    margin: 50px;
     border-radius: 10px;
     background-color: #FFFFFF;
   }
@@ -188,14 +203,21 @@ function getImage () {
 
 <body>
   <br />
-  <p>
-    <span class="fcsc_logo">
-      <a href="https://f-csc.org/"><img src="fcsc_logo.png"></a>
-    </span>
-    <span class="wrs_logo">
+  <table border="0">
+  <tr>
+    <td width="33%" class="ifac_logo">
+      <a href="https://www.ifac2023.org/"><img src="logo-ifac2023.svg"></a>
+    </td>
+    <td width="33%" class="fcsc_logo">
+        <a href="https://f-csc.org/"><img src="fcsc_logo.png"></a>
+      </span>
+    </td>
+    <td width="33%" class="wrs_logo">
       <a href="https://wrs.nedo.go.jp/"><img src="wrs_logo.png"></a>
-    </span>
-  </p>
+    </td>
+  </tr>
+</table>
+<br/><br/>
 
   <div class="disptext">Disposal Items</div>
   <br/><br/>
