@@ -1,0 +1,252 @@
+<html> 
+<head>
+  <style type="text/css">
+  /* logos */
+  body {
+    background-color: #EC721A;
+  }
+  a {
+    text-decoration: none;
+    color: #ee8f00;
+  }
+  .align-right {
+    text-align: right;
+  }
+  .fcsc_logo img {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ifac_logo img {
+    width: 40%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }
+  .wrs_logo img {
+    float: right;
+    width: 25%;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }
+
+  /* text, images, button */
+  p.label_image img { width: 20%; }
+  .disptext {
+    text-align: center;
+    font-size: 3vw;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: メイリオ, Meiryo, Verdana, "ヒラギノ角ゴ Pro W6", "HiraKakuProN-W6", "ＭＳ ゴシック", Osaka ,sans-serif;
+  }
+  .cards {
+    text-align: center;
+  }
+  .button {
+    text-align: center;
+  }
+
+  /* rotating cards */
+  @keyframes roll {
+    from {
+      transform: perspective(500px) rotateY(0deg);
+    }
+    50% {
+      transform: perspective(500px) rotateY(180deg);
+    }
+    to {
+     transform: perspective(500px) rotateY(360deg);
+    }
+  }
+  .rotate {
+    animation: roll 1s linear infinite;
+  }
+
+  /* lottery button effect */
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  .btn,
+  input.btn,
+  button.btn {
+    font-size: 2.6rem;
+    font-weight: bold;
+    font-family: メイリオ, Meiryo, Verdana, "ヒラギノ角ゴ Pro W6", "HiraKakuProN-W6",   "ＭＳ ゴシック", Osaka ,sans-serif;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.0em;
+    color: #6B79AD; /* #212529; */
+    border-radius: 1.5rem;
+  }
+  .btn-flat {
+    overflow: hidden;
+    padding: 1.5rem 6rem;
+    color: #fff;
+    border-radius: 10px;
+    background: #6B79AD; /* #000; */
+  }
+  .btn-flat span {
+    position: relative;
+  }
+  .btn-flat:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 500%;
+    content: "";
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    background: #5DAC98; /* #00b7ee; */
+  }
+  .btn-flat:hover:before {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  </style>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <img class="random" src="00.png" alt="00" style="display:none"/>
+  <img class="random" src="01.png" alt="01" style="display:none"/>
+  <img class="random" src="02.png" alt="02" style="display:none"/>
+  <img class="random" src="04.png" alt="04" style="display:none"/>
+  <img class="random" src="05.png" alt="05" style="display:none"/>
+  <img class="random" src="07.png" alt="07" style="display:none"/>
+  <img class="random" src="08.png" alt="08" style="display:none"/>
+  <img class="random" src="10.png" alt="10" style="display:none"/>
+  <img class="random" src="11.png" alt="11" style="display:none"/>
+  <img class="random" src="13.png" alt="13" style="display:none"/>
+  <img class="random" src="14.png" alt="14" style="display:none"/>
+  <img class="random" src="16.png" alt="16" style="display:none"/>
+  <img class="random" src="17.png" alt="17" style="display:none"/>
+  <img class="random" src="19.png" alt="19" style="display:none"/>
+  <img class="random" src="20.png" alt="20" style="display:none"/>
+  <img class="random" src="22.png" alt="22" style="display:none"/>
+  <img class="random" src="23.png" alt="23" style="display:none"/>
+  <img class="random" src="25.png" alt="25" style="display:none"/>
+  <img class="random" src="26.png" alt="26" style="display:none"/>
+</head>
+
+<script type="text/javascript">
+
+function rotateImage() {
+    // HTML上の画像タグ名
+  var img = ['img0', 'img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7','img8'];
+
+  // 画像タグに画像をセットする
+  var obj = new Array(img.length);
+  for (i = 0; i < img.length; i++) {
+    obj[i] = document.getElementById(img[i]);
+    obj[i].className = "rotate";
+    obj[i].src = "00.png";
+    console.log(obj[i].className);
+  }
+}
+function changeImage() {
+  // 画像ファイル名
+  var arr = [['01.png', '02.png'],
+             ['04.png', '05.png'],
+             ['07.png', '08.png'],
+             ['10.png', '11.png'],
+             ['13.png', '14.png'],
+             ['16.png', '17.png'],
+             ['19.png', '20.png'],
+             ['22.png', '23.png'],
+             ['25.png', '26.png']
+            ];
+  // HTML上の画像タグ名
+  var img = ['img0', 'img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'];
+
+  // 画像タグに画像をセットする
+  var obj = new Array(img.length);
+  for (i = 0; i < img.length; i++) {
+    obj[i] = document.getElementById(img[i]);
+    obj[i].src = arr[i][Math.floor(Math.random() * 2)];
+    obj[i].className = "random";
+    
+  }
+}
+function getImage () {
+    rotateImage();
+    var id = setTimeout(changeImage, 2500)
+}
+</script>
+
+<body>
+  <br />
+  <table border="0">
+  <tr>
+    <td width="33%" class="ifac_logo">
+      <a href="https://www.ifac2023.org/"><img src="logo-ifac2023.svg"></a>
+    </td>
+    <td width="33%" class="fcsc_logo">
+        <a href="https://f-csc.org/"><img src="fcsc_logo.png"></a>
+      </span>
+    </td>
+    <td width="33%" class="wrs_logo">
+      <a href="https://wrs.nedo.go.jp/"><img src="wrs_logo.png"></a>
+    </td>
+  </tr>
+</table>
+<br/><br/>
+
+  <div class="disptext">Disposal Items</div>
+  <br/><br/>
+  <div class="cards">
+  <p class="label_image">
+  <img src="00.png" id="img0" alt="item0" style="width: 15%;">
+  <img src="00.png" id="img1" alt="item1" style="width: 15%;">
+  <img src="00.png" id="img2" alt="item2" style="width: 15%;">
+  <img src="00.png" id="img3" alt="item3" style="width: 15%;">
+  <img src="00.png" id="img4" alt="item4" style="width: 15%;">
+  <br/>
+  <img src="00.png" id="img5" alt="item5" style="width: 15%;">
+  <img src="00.png" id="img6" alt="item6" style="width: 15%;">
+  <img src="00.png" id="img7" alt="item7" style="width: 15%;">
+  <img src="00.png" id="img8" alt="item8" style="width: 15%;">
+  .
+  </p>
+  </div>
+  <br/><br/>
+  <div class="button">
+    <a href="javascript:void(0)" class="btn btn-flat" onclick="getImage()">
+      <span>Draw The Lottery!!</span>
+    </a>
+  </div>
+  <div class="align-right">
+    <a href="./2018/index.html">2018</a>
+    <a href="./2019/index.html">2019</a>
+    <a href="./2020/index.html">2020</a>
+    <a href="./2022/index.html">2020</a>
+  </div>
+</body> 
+</html>
